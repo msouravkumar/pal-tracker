@@ -42,14 +42,14 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository{
 
     @Override
     public TimeEntry find(Long id) {
-            String findQuery = "select * from time_entries where id = ?";
-             TimeEntry timeEntry = null;
-            try{
-                timeEntry = jdbcTemplate.queryForObject(findQuery, new Object[]{id}, new TimeEntryRowMapper());
-            }catch( EmptyResultDataAccessException ex){
-                return timeEntry;
-            }
+        String findQuery = "select * from time_entries where id = ?";
+        TimeEntry timeEntry = null;
+        try{
+            timeEntry = jdbcTemplate.queryForObject(findQuery, new Object[]{id}, new TimeEntryRowMapper());
+        }catch( EmptyResultDataAccessException ex){
             return timeEntry;
+        }
+        return timeEntry;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository{
     @Override
     public void delete(Long id) {
         String deleteQuery = "delete from time_entries where id=?";
-       jdbcTemplate.update(deleteQuery, new Object[]{id});
+        jdbcTemplate.update(deleteQuery, new Object[]{id});
 
     }
 }
