@@ -4,9 +4,6 @@ import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.stereotype.Component;
 
-/**
- * Time entry health Indicator 
- */
 @Component
 public class TimeEntryHealthIndicator implements HealthIndicator {
 
